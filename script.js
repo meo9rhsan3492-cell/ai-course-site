@@ -215,3 +215,24 @@ window.verifyActivationCode = async function () {
         msgEl.style.color = 'red';
     }
 }
+
+// Copy WeChat ID
+window.copyWeChatId = function () {
+    const wechatId = document.getElementById('wechat-id').textContent;
+    navigator.clipboard.writeText(wechatId).then(() => {
+        const btn = document.querySelector('.btn-copy');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> 已复制';
+        btn.style.color = 'green';
+        btn.style.borderColor = 'green';
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.color = '';
+            btn.style.borderColor = '';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('复制失败，请手动复制');
+    });
+}
