@@ -38,9 +38,13 @@
 
         <!-- Main Content -->
         <main class="main-content">
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
             <!-- Course View -->
             <div id="course-view">
-                <!-- Chapter 1 - 改为 Antigravity -->
+                <!-- Chapter 1 -->
                 <section class="chapter-card" id="chapter1">
                     <div class="chapter-header">
                         <div class="chapter-icon"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -156,17 +160,8 @@
                         <div class="sub-chapter">
                             <h3>3.2 利用 AI 极速搭建项目</h3>
                             <ul class="lesson-list">
-                                <li><a href="#">3.2.1 基于模版，拥有你的第一个博客!</a></li>
-                                <li><a href="#">3.2.2 ShipAny: 1小时开发...</a></li>
-                                <li><a href="#">3.2.3 MixSaaS 模版: ...</a></li>
-                                <li><a href="#">3.2.4 EasyApp 模版: ...</a></li>
-                            </ul>
-                        </div>
-                        <div class="sub-chapter">
-                            <h3>3.3 无需部分代码的后端服务</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">3.3.1 Vercel 部署: 免费托管你的网站项目</a></li>
-                                <li><a href="#">3.3.2 新手起步好: 在 Zeabur 部署你的所有服务</a></li>
+                                <li><a href="#">3.2.1 快速搭建个人博客</a></li>
+                                <li><a href="#">3.2.2 搭建企业官网</a></li>
                             </ul>
                         </div>
                     </div>
@@ -176,74 +171,66 @@
             <!-- Lesson View -->
             <div id="lesson-view" style="display: none;">
                 <button id="back-to-course" class="btn-secondary">
-                    <i class="fa-solid fa-arrow-left"></i> 返回课程大纲
+                    <i class="fa-solid fa-arrow-left"></i> 返回课程目录
                 </button>
                 <div id="lesson-content-container">
-                    <!-- Lesson content will be loaded here -->
+                    <!-- Lesson content will be injected here -->
                 </div>
-            </div>
-
-            <!-- Pricing Float -->
-            <div class="pricing-float">
-                <div class="price-tag">
-                    <span class="label">购买完整内容解锁全部章节</span>
-                    <span class="price">¥499.00 <span class="original-price">原价 ¥999</span></span>
-                </div>
-                <button class="btn-buy">立即购买</button>
-                <div class="guarantee"><i class="fa-regular fa-clock"></i> 有效期 365 天 | 课程持续更新</div>
             </div>
         </main>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-
     <!-- Payment Modal -->
     <div id="payment-modal" class="modal">
         <div class="modal-content payment-content">
-            <span class="close-btn payment-close">&times;</span>
+            <span class="close payment-close">&times;</span>
             <div class="payment-header">
                 <h2>解锁全栈开发完整版</h2>
                 <p>一次购买，永久有效，持续更新</p>
             </div>
-            <div class="payment-body">
-                <div class="payment-methods">
-                    <button class="method-btn active" data-method="wechat">
+
+            <div class="payment-methods">
+                <div class="payment-tabs">
+                    <button class="method-btn active" data-method="wechat" onclick="switchPaymentMethod('wechat')">
                         <i class="fa-brands fa-weixin"></i> 微信支付
                     </button>
-                    <button class="method-btn" data-method="alipay">
+                    <button class="method-btn" data-method="alipay" onclick="switchPaymentMethod('alipay')">
                         <i class="fa-brands fa-alipay"></i> 支付宝
                     </button>
                 </div>
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SimulatedPayment"
-                            alt="Payment QR Code" id="payment-qrcode">
-                        <div class="scan-tip">
-                            <i class="fa-solid fa-expand"></i> 打开手机扫一扫
-                        </div>
+
+                <div class="qr-container">
+                    <div id="qr-wechat" class="qr-code active">
+                        <img src="wechat-pay.jpg" alt="微信支付二维码">
+                        <p>打开微信扫一扫</p>
                     </div>
-                    <div class="payment-status" id="payment-status">
-                        <i class="fa-solid fa-spinner fa-spin"></i> 等待支付中...
+                    <div id="qr-alipay" class="qr-code" style="display: none;">
+                        <img src="alipay-pay.jpg" alt="支付宝二维码">
+                        <p>打开支付宝扫一扫</p>
                     </div>
                 </div>
-                <div class="payment-price">
+
+                <div class="price-tag">
                     <span class="currency">¥</span>
-                    <span class="amount">499</span>
-                    <span class="period">/永久</span>
+                    <span class="amount">299</span>
                 </div>
-                <button class="btn-pay-confirm" onclick="startPaymentSimulation()">立即支付</button>
-                <div class="payment-footer">
-                    <p><i class="fa-solid fa-shield-halved"></i> 7天无理由退款</p>
+            </div>
+
+            <div class="activation-section">
+                <div class="input-group">
+                    <input type="text" id="activation-code" placeholder="请输入激活码 (支付后联系客服获取)">
+                    <button class="btn-primary btn-pay-confirm" onclick="verifyActivationCode()">验证并解锁课程</button>
                 </div>
+                <div id="payment-status" class="status-message"></div>
+            </div>
+
+            <div class="payment-footer">
+                <p><i class="fa-solid fa-shield-halved"></i> 7天无理由退款</p>
+                <p>客服微信: YourWeChatID</p>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>

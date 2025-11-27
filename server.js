@@ -15,7 +15,42 @@ app.use(express.static(path.join(__dirname, '.'))); // 服务当前目录的静�
 // 模拟数据库
 const orders = new Map();
 
-// API: 创建订单
+// 激活码数据库 (生产环境应存储在真实数据库中)
+// 格式: 'CODE': { used: boolean }
+const activationCodes = new Map([
+    ['VIP-8888', { used: false }],
+    ['AI-2025', { used: false }],
+    ['LEARN-NOW', { used: false }],
+    ['SVIP-6666', { used: false }]
+]);
+
+// API: 验证激活码
+app.post('/api/verify-code', (req, res) => {
+    const { code } = req.body;
+
+    if (!code) {
+        return res.status(400).json({ success: false, error: '请输入激活码' });
+    }
+
+    const codeData = activationCodes.get(code);
+
+    if (!codeData) {
+        return res.status(400).json({ success: false, error: '无效的激活码' });
+    }
+
+    // 这里可以决定激活码是否只能使用一次
+    // if (codeData.used) {
+    //     return res.status(400).json({ success: false, error: '激活码已被使用' });
+    // }
+
+    // 标记为已使用
+    // codeData.used = true;
+    // activationCodes.set(code, codeData);
+
+    res.json({ success: true });
+});
+
+// API: 创建订单 (保留用于兼容)
 app.post('/api/create-order', (req, res) => {
     try {
         const { productId, amount, userId } = req.body;
