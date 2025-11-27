@@ -76,42 +76,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Scroll to top
         if (mainContent) mainContent.scrollTop = 0;
-        buyBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                openPaymentModal();
-            });
+    }
+
+    // Back to course view
+    if (backToCourseBtn) {
+        backToCourseBtn.addEventListener('click', () => {
+            lessonView.style.display = 'none';
+            courseView.style.display = 'block';
         });
+    }
 
-        // Close payment modal
-        if (paymentCloseBtn) {
-            paymentCloseBtn.addEventListener('click', () => {
-                paymentModal.style.display = 'none';
-            });
+    // Payment modal
+    function openPaymentModal() {
+        if (paymentModal) {
+            paymentModal.style.display = 'block';
         }
+    }
 
-        // Theme toggle
-        if (themeToggleBtn) {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-
-            themeToggleBtn.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            });
-        }
-
-        // Mobile menu
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                sidebar.classList.toggle('show');
-            });
-        }
-
-        console.log('All event listeners attached!');
+    // Buy buttons
+    buyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            openPaymentModal();
+        });
     });
+
+    // Close payment modal
+    if (paymentCloseBtn) {
+        paymentCloseBtn.addEventListener('click', () => {
+            paymentModal.style.display = 'none';
+        });
+    }
+
+    // Theme toggle
+    if (themeToggleBtn) {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    // Mobile menu
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+    }
+
+    console.log('All event listeners attached!');
+});
 
 // Payment simulation (global function for inline onclick)
 function startPaymentSimulation() {
