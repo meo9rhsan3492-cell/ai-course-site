@@ -746,213 +746,155 @@ print(welcome("Bob"))    # 输出: Welcome, Bob</code></pre>
         </div>
     `,
 
-    "1.2.3 安装 Python": `
+    "2.1.1 AI 辅助下的前端开发: NextJS 实战基础入门": `
         <div class="lesson-content">
-            <h2>1.2.3 安装 Python</h2>
+            <h2>2.1.1 AI 辅助下的前端开发: NextJS 实战基础入门</h2>
             <div class="intro-box">
-                <p><strong>📚 本节目标：</strong> 安装 Python —— AI 时代的第一语言，简洁、强大、无所不能。</p>
+                <p><strong>📚 本节目标：</strong> 学习 React 的最强框架 Next.js，并学会用 AI 生成漂亮的 UI 组件。</p>
             </div>
 
-            <h3>🤔 为什么是 Python?</h3>
-            <p>因为 <strong>AI = Python</strong>。几乎所有的 AI 框架（PyTorch, TensorFlow）和工具（包括 Antigravity 的后端逻辑）都是用 Python 开发的。</p>
+            <h3>⚛️ 为什么选 Next.js?</h3>
+            <p>React 是库，Next.js 是框架。它帮你解决了路由、渲染、打包等所有麻烦事，让你开箱即用。</p>
 
-            <h3>⬇️ 下载与安装</h3>
-            <div class="step-guide">
-                <h4>Windows 用户 (⚠️ 注意细节)</h4>
-                <ol>
-                    <li>访问官网：<a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
-                    <li>下载最新的 Python 3.x 版本 (例如 3.11 或 3.12)</li>
-                    <li><strong>关键一步：</strong> 在安装界面的最下方，<strong>务必勾选 "Add python.exe to PATH"</strong> ！！！如果不勾选，你在终端里就找不到 Python。</li>
-                    <li>点击 "Install Now"。</li>
-                </ol>
-
-                <h4>Mac 用户</h4>
-                <ol>
-                    <li>访问官网下载 macOS 安装包。</li>
-                    <li>一路 "Next" 安装。</li>
-                    <li>或者使用 Homebrew (如果你懂的话): <code>brew install python</code></li>
-                </ol>
-            </div>
-
-            <h3>✅ 验证安装</h3>
-            <p>打开终端，输入：</p>
-            <pre><code class="language-bash">python --version
-# 或者 python3 --version</code></pre>
-            <p>看到版本号即为成功！</p>
-
-            <div class="practice-box">
-                <h4>🏋️ 你的第一行 Python 代码</h4>
-                <p>在终端输入 <code>python</code> 进入交互模式，然后输入：</p>
-                <pre><code class="language-python">print("Hello, AI World!")</code></pre>
-                <p>看到输出了吗？恭喜你，你已经是一名 Python 程序员了！👨‍💻</p>
-                <p>输入 <code>exit()</code> 退出。</p>
-            </div>
-        </div>
-    `,
-
-    "1.3.1 AI 时代下的编程核心概念 + 最佳实践": `
-        <div class="lesson-content">
-            <h2>1.3.1 AI 时代下的编程核心概念 + 最佳实践</h2>
-            <div class="intro-box">
-                <p><strong>📚 本节目标：</strong> 转变思维，从"手写代码"进化到"指挥 AI 写代码"。</p>
-            </div>
-
-            <h3>🧠 核心概念转变</h3>
-            <div class="comparison-table">
-                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-                    <tr>
-                        <th style="padding: 10px; border-bottom: 2px solid #eee;">传统编程</th>
-                        <th style="padding: 10px; border-bottom: 2px solid #eee;">AI 编程</th>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px;">记忆语法 (Syntax)</td>
-                        <td style="padding: 10px;">设计逻辑 (Logic)</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px;">查文档 (Google/StackOverflow)</td>
-                        <td style="padding: 10px;">问 AI (Context-aware)</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px;">手写每一行 (Implementation)</td>
-                        <td style="padding: 10px;">审查与组装 (Review & Assembly)</td>
-                    </tr>
-                </table>
-            </div>
-
-            <h3>💡 最佳实践：Prompt Engineering (提示词工程)</h3>
-            <p>AI 不是读心术，你描述得越清楚，它写得越好。遵循 <strong>"C.I.R" 原则</strong>：</p>
-            
-            <div class="feature-grid">
-                <div class="feature-box">
-                    <h4>C - Context (上下文)</h4>
-                    <p>告诉 AI 背景。"我正在写一个电商网站的购物车功能..."</p>
-                </div>
-                <div class="feature-box">
-                    <h4>I - Instruction (指令)</h4>
-                    <p>具体要做什么。"请写一个函数，计算总价，支持打折。"</p>
-                </div>
-                <div class="feature-box">
-                    <h4>R - Requirement (要求)</h4>
-                    <p>具体的约束。"使用 Python，返回值保留2位小数，要处理负数异常。"</p>
-                </div>
-            </div>
-
+            <h3>🤖 AI 辅助写组件</h3>
+            <p>以前你需要手写 HTML/CSS，现在你只需要告诉 AI：</p>
             <div class="chat-example">
-                <p>❌ <strong>差的提示词：</strong> "写个计算器。"</p>
-                <p>✅ <strong>好的提示词：</strong> "我正在开发一个网页版计算器 (Context)。请用 JavaScript 写一个函数 (Instruction)，接收两个数字和一个运算符，返回结果。如果除数为0，需要返回 null (Requirement)。"</p>
+                <p>"请用 Tailwind CSS 写一个现代化的登录卡片，包含邮箱、密码输入框和登录按钮，要支持深色模式。"</p>
+            </div>
+            <p>AI 会生成如下代码：</p>
+            <pre><code class="language-jsx">export default function LoginCard() {
+  return (
+    <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+      <h2 className="text-2xl font-bold mb-4 dark:text-white">Login</h2>
+      <input className="w-full p-2 mb-3 border rounded dark:bg-gray-700" placeholder="Email" />
+      <input className="w-full p-2 mb-4 border rounded dark:bg-gray-700" type="password" placeholder="Password" />
+      <button className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+        Sign In
+      </button>
+    </div>
+  );
+}</code></pre>
+        </div>
+    `,
+
+    "2.1.2 AI 辅助下的后端开发入门: Python 的基本使用": `
+        <div class="lesson-content">
+            <h2>2.1.2 AI 辅助下的后端开发入门: Python 的基本使用</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 掌握 Python 基础，让 AI 帮你写逻辑。</p>
+            </div>
+
+            <h3>🐍 Python 极速入门</h3>
+            <p>Python 的语法非常接近英语。看几个例子：</p>
+
+            <h4>1. 变量与判断</h4>
+            <pre><code class="language-python">age = 18
+if age >= 18:
+    print("成年人")
+else:
+    print("未成年")</code></pre>
+
+            <h4>2. 列表与循环</h4>
+            <pre><code class="language-python">fruits = ["Apple", "Banana", "Cherry"]
+for fruit in fruits:
+    print(f"I love {fruit}")</code></pre>
+
+            <h3>🤖 让 AI 写逻辑</h3>
+            <p>你不需要背诵 API，只需要描述逻辑：</p>
+            <div class="chat-example">
+                <p>"写一个 Python 函数，输入一个文件名，判断它是不是图片格式 (jpg, png, gif)。"</p>
             </div>
         </div>
     `,
 
-    "1.3.2 新手入门实战必备概念 + 最佳实践": `
+    "2.1.3 AI 辅助下的后端开发入门: 用 Flask 实现一个简单的 API": `
         <div class="lesson-content">
-            <h2>1.3.2 新手入门实战必备概念 + 最佳实践</h2>
+            <h2>2.1.3 用 Flask 实现一个简单的 API</h2>
             <div class="intro-box">
-                <p><strong>📚 本节目标：</strong> 即使有 AI，你也需要懂这 3 个最基础的编程概念，才能看懂 AI 写的代码。</p>
+                <p><strong>📚 本节目标：</strong> 5行代码搭建一个 Web 服务器。</p>
             </div>
 
-            <h3>1️⃣ 变量 (Variables) —— 数据的容器</h3>
-            <p>就像给盒子贴标签。</p>
-            <pre><code class="language-python">name = "Antigravity"  # 字符串
-price = 299           # 数字
-is_awesome = True     # 布尔值 (是/否)</code></pre>
+            <h3>🌶️ Flask 简介</h3>
+            <p>Flask 是 Python 最轻量级的 Web 框架。</p>
 
-            <h3>2️⃣ 循环 (Loops) —— 重复做某事</h3>
-            <p>让计算机帮你做重复的苦力活。</p>
-            <pre><code class="language-python"># 打印 5 次 "Hello"
-for i in range(5):
-    print("Hello")</code></pre>
+            <h3>💻 Hello World</h3>
+            <pre><code class="language-python">from flask import Flask
 
-            <h3>3️⃣ 函数 (Functions) —— 功能的封装</h3>
-            <p>把一段代码打包，方便重复使用。</p>
-            <pre><code class="language-python">def welcome(user):
-    return "Welcome, " + user
+app = Flask(__name__)
 
-print(welcome("Alice"))  # 输出: Welcome, Alice
-print(welcome("Bob"))    # 输出: Welcome, Bob</code></pre>
+@app.route('/')
+def hello():
+    return "Hello, AI World!"
 
-            <div class="tip-box">
-                <h4>💡 AI 最佳实践</h4>
-                <p>你不必背诵这些语法！你只需要知道<strong>"我想存个数据"</strong>、<strong>"我想重复做这件事"</strong>、<strong>"我想把这个功能打包"</strong>，然后告诉 AI，它会帮你写出正确的语法。</p>
-            </div>
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+            <p>运行后，访问 <code>http://localhost:5000</code> 就能看到网页了！</p>
         </div>
     `,
 
-    "1.3.3 Git 入门: 必学! AI 编程协作基石": `
+    "2.1.4 AI 时代的数据库开发 + AI 编写 SQL 指南": `
         <div class="lesson-content">
-            <h2>1.3.3 Git 入门: 必学! AI 编程协作基石</h2>
+            <h2>2.1.4 AI 时代的数据库开发</h2>
             <div class="intro-box">
-                <p><strong>📚 本节目标：</strong> 学会 Git 的 4 个核心命令，从此代码不怕丢。</p>
+                <p><strong>📚 本节目标：</strong> 不用学复杂的 SQL 语法，用自然语言查询数据库 (Text-to-SQL)。</p>
             </div>
 
-            <h3>🚀 核心流程图</h3>
-            <p>工作区 (写代码) → 暂存区 (挑选中) → 仓库 (存档)</p>
-
-            <h3>🛠️ 4 个必须记住的命令</h3>
-            <div class="step-guide">
-                <h4>1. git init</h4>
-                <p><strong>初始化。</strong> 在你的项目文件夹里运行一次，告诉 Git "这里归你管了"。</p>
-
-                <h4>2. git add .</h4>
-                <p><strong>添加。</strong> 把你修改的文件放到"暂存区"（准备提交）。<code>.</code> 代表所有文件。</p>
-
-                <h4>3. git commit -m "备注"</h4>
-                <p><strong>提交。</strong> 真正地存档。<code>-m</code> 后面写上你干了什么。</p>
-                <p>🤖 <strong>AI 技巧：</strong> Antigravity 可以自动帮你写 commit message！</p>
-
-                <h4>4. git push</h4>
-                <p><strong>推送。</strong> 把代码上传到云端（如 GitHub），防止电脑爆炸导致代码丢失。</p>
-            </div>
-
-            <div class="practice-box">
-                <h4>🏋️ 动手练习</h4>
-                <ol>
-                    <li>新建一个文件夹 <code>my_project</code></li>
-                    <li>终端进入该目录：<code>cd my_project</code></li>
-                    <li><code>git init</code></li>
-                    <li>新建文件 <code>readme.txt</code>，随便写点什么</li>
-                    <li><code>git add .</code></li>
-                    <li><code>git commit -m "第一次提交"</code></li>
-                </ol>
-                <p>恭喜！你完成了人生第一次代码存档。</p>
-            </div>
-        </div>
-    `,
-
-    "1.3.4 AI 编程的应用在全栈编程实践": `
-        <div class="lesson-content">
-            <h2>1.3.4 AI 编程的应用在全栈编程实践</h2>
-            <div class="intro-box">
-                <p><strong>📚 本节目标：</strong> 了解什么是"全栈"，以及 AI 如何帮你打通前后端。</p>
-            </div>
-
-            <h3>🏗️ 什么是全栈 (Full Stack)?</h3>
-            <p>全栈 = 前端 (看得见的) + 后端 (处理数据的) + 数据库 (存数据的)。</p>
-
-            <div class="feature-grid">
-                <div class="feature-box">
-                    <h4>🎨 前端 (Frontend)</h4>
-                    <p>HTML, CSS, JavaScript。负责页面长什么样。</p>
-                    <p>🤖 <strong>AI 作用：</strong> 画页面、写样式、做动画（比如你现在看到的这个网站）。</p>
-                </div>
-                <div class="feature-box">
-                    <h4>⚙️ 后端 (Backend)</h4>
-                    <p>Python, Node.js。负责处理业务逻辑（比如登录验证、支付处理）。</p>
-                    <p>🤖 <strong>AI 作用：</strong> 写 API 接口、设计算法、处理数据。</p>
-                </div>
-                <div class="feature-box">
-                    <h4>💾 数据库 (Database)</h4>
-                    <p>SQL, MongoDB。负责永久保存数据。</p>
-                    <p>🤖 <strong>AI 作用：</strong> 写 SQL 查询语句、设计表结构。</p>
-                </div>
-            </div>
-
-            <h3>🚀 AI 如何改变全栈开发？</h3>
-            <p>以前，全栈工程师需要精通所有技术，学习曲线极陡。现在：</p>
+            <h3>💾 数据库基础</h3>
+            <p>数据库就像一个超级 Excel 表格。</p>
             <ul>
-                <li>你不必精通 CSS，也能画出漂亮的界面 (v0.dev)。</li>
-                <li>你不必精通 SQL，也能写出复杂的查询 (Text-to-SQL)。</li>
+                <li><strong>Table (表):</strong> 比如 "Users" 表。</li>
+                <li><strong>Row (行):</strong> 每一行是一个用户。</li>
+                <li><strong>Column (列):</strong> 比如 "Name", "Age"。</li>
             </ul>
+
+            <h3>🤖 AI 写 SQL</h3>
+            <div class="chat-example">
+                <p><strong>你：</strong> "查询所有年龄大于 20 岁且住在北京的用户，按注册时间倒序排列。"</p>
+                <p><strong>AI：</strong></p>
+                <pre><code class="language-sql">SELECT * FROM Users 
+WHERE age > 20 AND city = 'Beijing' 
+ORDER BY created_at DESC;</code></pre>
+            </div>
+        </div>
+    `,
+
+    "2.2.1 新手友好的腾讯云开发 CloudBase": `
+        <div class="lesson-content">
+            <h2>2.2.1 腾讯云开发 CloudBase</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 了解国内最方便的 Serverless 平台，无需运维服务器。</p>
+            </div>
+
+            <h3>☁️ 什么是 CloudBase?</h3>
+            <p>它提供了一站式的后端服务：云函数（跑代码）、云数据库（存数据）、云存储（存图片）。</p>
+            <p>特别适合微信小程序和 Web 应用开发。</p>
+        </div>
+    `,
+
+    "2.2.2 出海必备 - Supabase 完全指南": `
+        <div class="lesson-content">
+            <h2>2.2.2 Supabase 完全指南</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 掌握 "开源版 Firebase"，独立开发者的首选后端。</p>
+            </div>
+
+            <h3>🔥 为什么选 Supabase?</h3>
+            <ul>
+                <li><strong>PostgreSQL:</strong> 强大的关系型数据库。</li>
+                <li><strong>Auth:</strong> 内置用户注册/登录系统。</li>
+                <li><strong>Realtime:</strong> 数据更新实时推送到前端。</li>
+                <li><strong>API:</strong> 自动根据表结构生成 API，不用写后端代码！</li>
+            </ul>
+
+            <h3>💻 快速上手</h3>
+            <pre><code class="language-javascript">import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient('https://xyz.supabase.co', 'public-anon-key')
+
+// 查询数据
+const { data, error } = await supabase
+  .from('countries')
+  .select()</code></pre>
         </div>
     `,
 
