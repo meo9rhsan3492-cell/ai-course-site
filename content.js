@@ -940,8 +940,409 @@ print(welcome("Bob"))    # 输出: Welcome, Bob</code></pre>
                     <p>Python, Node.js。负责处理业务逻辑（比如登录验证、支付处理）。</p>
                     <p>🤖 <strong>AI 作用：</strong> 写 API 接口、设计算法、处理数据。</p>
                 </div>
+                <div class="feature-box">
+                    <h4>💾 数据库 (Database)</h4>
+                    <p>SQL, MongoDB。负责永久保存数据。</p>
+                    <p>🤖 <strong>AI 作用：</strong> 写 SQL 查询语句、设计表结构。</p>
+                </div>
+            </div>
+
+            <h3>🚀 AI 如何改变全栈开发？</h3>
+            <p>以前，全栈工程师需要精通所有技术，学习曲线极陡。现在：</p>
+            <ul>
+                <li>你不必精通 CSS，也能画出漂亮的界面 (v0.dev)。</li>
+                <li>你不必精通 SQL，也能写出复杂的查询 (Text-to-SQL)。</li>
+            </ul>
+        </div>
+    `,
+
+    "3.1.1 快速部署 DeepSeek R1 私有模型": `
+        <div class="lesson-content">
+            <h2>3.1.1 快速部署 DeepSeek R1 私有模型</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 在你的电脑上运行最强开源模型 DeepSeek R1，实现隐私保护和无限免费对话。</p>
+            </div>
+            <h3>🛠️ 工具准备</h3>
+            <ul>
+                <li><strong>Ollama:</strong> 一个极其简单的本地大模型运行工具。</li>
+                <li><strong>DeepSeek R1:</strong> 目前推理能力最强的开源模型。</li>
+            </ul>
+            
+            <h3>🚀 部署步骤</h3>
+            <h4>Step 1: 安装 Ollama</h4>
+            <pre><code class="language-bash"># macOS / Linux
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Windows
+# 直接去 ollama.com 下载安装包</code></pre>
+
+            <h4>Step 2: 拉取并运行模型</h4>
+            <p>打开终端，输入以下命令。根据你的显存大小选择不同版本：</p>
+            <pre><code class="language-bash"># 电脑配置一般 (8G内存)，用 1.5b 版本
+ollama run deepseek-r1:1.5b
+
+# 电脑配置不错 (16G内存+)，用 7b 或 8b 版本
+ollama run deepseek-r1:8b
+
+# 显卡土豪 (24G显存+)，用 32b 版本
+ollama run deepseek-r1:32b</code></pre>
+
+            <h4>Step 3: 编程调用 (Python)</h4>
+            <p>模型跑起来后，它会在 <code>localhost:11434</code> 开启一个 API。</p>
+            <pre><code class="language-python">import requests
+
+response = requests.post('http://localhost:11434/api/generate', json={
+    "model": "deepseek-r1:8b",
+    "prompt": "为什么天空是蓝色的？",
+    "stream": False
+})
+
+print(response.json()['response'])</code></pre>
+        </div>
+    `,
+
+    "3.1.2 开发 Chrome 插件: 把上网助手变成生产力外挂": `
+        <div class="lesson-content">
+            <h2>3.1.2 开发 Chrome 插件: 把上网助手变成生产力外挂</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 开发一个 Chrome 侧边栏插件，一键总结当前网页内容。</p>
+            </div>
+            
+            <h3>🧩 插件核心结构</h3>
+            <p>Chrome 插件本质上就是 HTML + JS，只是多了一个 <code>manifest.json</code> 身份证。</p>
+            
+            <h4>1. manifest.json (配置)</h4>
+            <pre><code class="language-json">{
+  "manifest_version": 3,
+  "name": "AI 网页总结助手",
+  "version": "1.0",
+  "permissions": ["activeTab", "sidePanel"],
+  "side_panel": { "default_path": "sidebar.html" },
+  "background": { "service_worker": "background.js" }
+}</code></pre>
+
+            <h4>2. sidebar.html (界面)</h4>
+            <pre><code class="language-html">&lt;button id="summarize-btn"&gt;总结全文&lt;/button&gt;
+&lt;div id="result"&gt;&lt;/div&gt;
+&lt;script src="sidebar.js"&gt;&lt;/script&gt;</code></pre>
+
+            <h4>3. sidebar.js (逻辑)</h4>
+            <pre><code class="language-javascript">document.getElementById('summarize-btn').addEventListener('click', async () => {
+    // 1. 获取当前标签页内容
+    const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+    const result = await chrome.scripting.executeScript({
+        target: {tabId: tab.id},
+        function: () => document.body.innerText
+    });
+    const pageContent = result[0].result;
+
+    // 2. 发送给 AI (这里调用你的 API)
+    const summary = await callAI(pageContent);
+    
+    // 3. 显示结果
+    document.getElementById('result').innerText = summary;
+});</code></pre>
+        </div>
+    `,
+
+    "3.1.3 开发一个能赚钱的网站: 接入国内个人支付 (无需营业执照)": `
+        <div class="lesson-content">
+            <h2>3.1.3 接入国内个人支付</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 独立开发者最大的痛点是收款。本节介绍几种无需注册公司的收款方案。</p>
+            </div>
+
+            <h3>💰 方案对比</h3>
+            <div class="comparison-table">
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr>
+                        <th style="padding: 10px; border-bottom: 2px solid #eee;">方案</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #eee;">优点</th>
+                        <th style="padding: 10px; border-bottom: 2px solid #eee;">缺点</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>面包多/爱发电</strong></td>
+                        <td style="padding: 10px;">完全合规，无需开发，直接给链接</td>
+                        <td style="padding: 10px;">手续费较高，用户体验中断</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>支付宝当面付</strong></td>
+                        <td style="padding: 10px;">官方接口，费率低 (0.38%)</td>
+                        <td style="padding: 10px;">需要个体户执照 (部分地区个人可申请)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>易支付/码支付</strong></td>
+                        <td style="padding: 10px;">个人免签，直接到账</td>
+                        <td style="padding: 10px;"><strong>风险极高</strong>，容易跑路或封号</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>🛠️ 推荐方案：面包多 API</h3>
+            <p>虽然有手续费，但它是最稳妥的个人方案。</p>
+            <pre><code class="language-javascript">// 简单的支付流程
+function pay() {
+    // 1. 创建订单
+    const orderId = createOrder();
+    
+    // 2. 跳转到面包多支付页
+    window.location.href = `https://mbd.pub/pay?order_id=${orderId}`;
+}
+
+// 3. 接收 Webhook 回调 (在后端)
+app.post('/webhook/mbd', (req, res) => {
+    const { status, order_id } = req.body;
+    if (status === 'paid') {
+        // 给用户发货/开通会员
+        activateUser(order_id);
+    }
+});</code ></pre >
+        </div >
+    `,
+
+    "3.1.4 用 DeepSeek + Qwen-VL 做一个 AI 办公流应用": `
+    < div class="lesson-content" >
+            <h2>3.1.4 AI 办公流应用: 智能发票报销助手</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 结合 DeepSeek (文本脑) 和 Qwen-VL (视觉眼)，实现全自动发票识别与归档。</p>
+            </div>
+
+            <h3>🏗️ 架构设计</h3>
+            <p>用户上传图片 -> <strong>Qwen-VL</strong> 提取文字 -> <strong>DeepSeek</strong> 结构化数据 -> 存入 Excel/数据库。</p>
+
+            <h3>👀 视觉模型调用 (Qwen-VL)</h3>
+            <pre><code class="language-python"># 伪代码示例
+def analyze_invoice(image_path):
+    prompt = "请提取这张发票的：发票代码、金额、日期、开票方。以JSON格式返回。"
+    
+    response = qwen_vl.chat(
+        image=image_path,
+        prompt=prompt
+    )
+    
+    return json.loads(response)</code></pre>
+
+            <h3>🧠 文本模型处理 (DeepSeek)</h3>
+            <pre><code class="language-python">def check_policy(invoice_data):
+    prompt = f"""
+    公司报销规定：
+    1. 餐饮费单笔不超过 500 元。
+    2. 必须是工作日。
+    
+    当前发票：{invoice_data}
+    
+    请判断是否合规？如果不合规，说明原因。
+    """
+    
+    return deepseek.chat(prompt)</code></pre>
+        </div >
+    `,
+
+    "3.1.5 复刻一个 Midjourney: 登录 + 遇文生图 + 支付 + token 管理": `
+    < div class="lesson-content" >
+            <h2>3.1.5 复刻 Midjourney</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 搭建一个完整的 SaaS 图片生成网站，包含用户系统、积分系统和 AI 绘图功能。</p>
+            </div>
+
+            <h3>🛠️ 技术栈</h3>
+            <ul>
+                <li><strong>前端：</strong> Next.js + Tailwind CSS</li>
+                <li><strong>后端/数据库：</strong> Supabase (Auth + Database)</li>
+                <li><strong>AI 绘图：</strong> Replicate API (运行 Stable Diffusion XL)</li>
+            </ul>
+
+            <h3>🎨 核心代码：调用 Replicate</h3>
+            <pre><code class="language-javascript">import Replicate from "replicate";
+
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+});
+
+export async function generateImage(prompt) {
+  // 1. 检查用户积分
+  const user = await getUser();
+  if (user.credits < 1) throw new Error("积分不足");
+
+  // 2. 调用 AI
+  const output = await replicate.run(
+    "stability-ai/sdxl:39ed52f2...",
+    { input: { prompt: prompt } }
+  );
+
+  // 3. 扣除积分
+  await deductCredit(user.id, 1);
+
+  return output;
+}</code></pre>
+        </div >
+    `,
+
+    "3.1.6 用 Chrome 插件抓取一切网页数据": `
+    < div class="lesson-content" >
+            <h2>3.1.6 Chrome 插件爬虫</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 利用 Chrome 插件的"特权"，绕过反爬虫机制，抓取任意网页数据。</p>
+            </div>
+
+            <h3>🕷️ 为什么用插件做爬虫？</h3>
+            <p>传统爬虫 (Python requests) 容易被封 IP 或验证码拦截。插件爬虫运行在真实浏览器中，<strong>完全模拟真人行为</strong>，几乎无法被检测。</p>
+
+            <h3>🛠️ Content Script 注入</h3>
+            <p>在 <code>manifest.json</code> 中配置要注入的网站：</p>
+            <pre><code class="language-json">"content_scripts": [
+  {
+    "matches": ["https://www.linkedin.com/*"],
+    "js": ["scraper.js"]
+  }
+]</code></pre>
+
+            <h3>📜 scraper.js (抓取逻辑)</h3>
+            <pre><code class="language-javascript">// 等待页面加载完成
+window.onload = () => {
+    // 1. 提取数据
+    const name = document.querySelector('.profile-name').innerText;
+    const job = document.querySelector('.job-title').innerText;
+    
+    // 2. 发送到你的后端
+    fetch('https://your-api.com/save', {
+        method: 'POST',
+        body: JSON.stringify({ name, job })
+    });
+    
+    // 3. 自动翻页 (可选)
+    // document.querySelector('.next-page-btn').click();
+};</code></pre>
+        </div >
+    `,
+
+    "3.1.7 使用 v0 + supabase + Antigravity 创建一个导航站(上)": `
+    < div class="lesson-content" >
+            <h2>3.1.7 AI 导航站开发 (上): 界面与数据库</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 30分钟搭建一个高颜值的 AI 工具导航站。</p>
+            </div>
+
+            <h3>🎨 Step 1: 用 v0 生成 UI</h3>
+            <p>访问 <a href="https://v0.dev" target="_blank">v0.dev</a>，输入提示词：</p>
+            <div class="chat-example">
+                <p>"A modern AI tools directory website. Dark mode. Grid layout with cards. Each card has an icon, title, description, and tags. Sidebar with categories."</p>
+            </div>
+            <p>复制生成的 React 代码到你的 Next.js 项目中。</p>
+
+            <h3>💾 Step 2: Supabase 建表</h3>
+            <pre><code class="language-sql">create table tools (
+  id bigint primary key generated always as identity,
+  name text not null,
+  description text,
+  url text,
+  tags text[],
+  category text,
+  icon_url text
+);</code></pre>
+        </div >
+    `,
+
+    "3.1.8 使用 Antigravity + supabase + ChatGPT o3 开发端侧后台(下)": `
+    < div class="lesson-content" >
+            <h2>3.1.8 AI 导航站开发 (下): 智能后台</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 只要输入一个 URL，AI 自动抓取网站信息并分类，一键入库。</p>
+            </div>
+
+            <h3>🧠 核心逻辑</h3>
+            <ol>
+                <li>管理员输入 URL (例如: <code>https://chatgpt.com</code>)</li>
+                <li>后端爬虫抓取该页面的 <code>meta description</code></li>
+                <li><strong>调用 ChatGPT o3</strong> 分析该工具的功能、分类、标签</li>
+                <li>自动存入 Supabase</li>
+            </ol>
+
+            <h3>🤖 AI 分析代码</h3>
+            <pre><code class="language-javascript">async function analyzeTool(url, htmlContent) {
+    const prompt = \`
+    分析这个网站: \${url}
+    内容: \${htmlContent}
+    
+    请返回 JSON 格式:
+    {
+        "name": "工具名",
+        "description": "一句话简介",
+        "category": "分类(如: 写作, 图像, 编程)",
+        "tags": ["标签1", "标签2"]
+    }
+    \`;
+    
+    return await callOpenAI(prompt);
+}</code></pre>
+        </div >
+    `,
+
+    "3.1.9 用 lovable + 视觉模型: 开发扫描识别并提取数据的 H5": `
+    < div class="lesson-content" >
+            <h2>3.1.9 视觉识别 H5: 拍图识物</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 开发一个手机网页，用户拍照上传，AI 识别物体并给出淘宝/亚马逊链接。</p>
+            </div>
+
+            <h3>🛠️ 工具链</h3>
+            <ul>
+                <li><strong>Lovable:</strong> 新一代 No-code 平台，比 v0 更适合做完整应用。</li>
+                <li><strong>GPT-4o / Qwen-VL:</strong> 视觉识别模型。</li>
+            </ul>
+
+            <h3>📱 核心流程</h3>
+            <ol>
+                <li>使用 HTML <code>&lt;input type="file" capture="camera"&gt;</code> 调用手机相机。</li>
+                <li>将图片转为 Base64。</li>
+                <li>发送给 GPT-4o。</li>
+            </ol>
+
+            <pre><code class="language-javascript">const prompt = "识别图中的物品，并给出它的品牌、型号和预估价格。";
+const response = await openai.chat.completions.create({
+    model: "gpt-4o",
+    messages: [
+        {
+            role: "user",
+            content: [
+                { type: "text", text: prompt },
+                { type: "image_url", image_url: { url: base64Image } }
+            ]
+        }
+    ]
+});</code></pre>
+        </div >
+    `,
+
+    "3.1.10 全栈天气 OOTD 小程序: 文生图": `
+    < div class="lesson-content" >
+            <h2>3.1.10 天气 OOTD 小程序</h2>
+            <div class="intro-box">
+                <p><strong>📚 本节目标：</strong> 根据当天的天气和温度，AI 自动生成一套时尚穿搭图片 (OOTD)。</p>
+            </div>
+
+            <h3>🔗 数据流</h3>
+            <p>Weather API -> Prompt Engineering -> Image Generation API</p>
+
+            <h3>1. 获取天气</h3>
+            <pre><code class="language-javascript">const weather = await fetch('https://api.weatherapi.com/...').then(res => res.json());
+// 假设结果: 25度, 晴天</code></pre>
+
+        <h3>2. 生成提示词 (Prompt)</h3>
+        <pre><code class="language-javascript">const prompt = \`
+            Design a fashion outfit for a \${weather.condition} day with \${weather.temp_c}°C.
+            Style: Casual, Streetwear.
+            Gender: Female.
+            Full body shot, high quality, photorealistic.
+            \`;</code></pre>
+
+        <h3>3. 生成图片</h3>
+        <p>调用 Midjourney 或 Stable Diffusion 接口生成图片并展示给用户。</p>
+        </div >
+    `,
+
     "3.1.11 iOS 应用开发: 开发一款 AI 消费记账软件 (基于 Owen Omni)": `
-        < div class= "lesson-content" >
+    < div class= "lesson-content" >
             <h2>3.1.11 iOS AI 记账</h2>
             <div class="intro-box">
                 <p><strong>📚 本节目标：</strong> 开发一个 iOS App，用户按住说话"我刚买了杯咖啡25元"，AI 自动记账。</p>
@@ -965,10 +1366,10 @@ print(welcome("Bob"))    # 输出: Welcome, Bob</code></pre>
     let json = await gptAPI.chat(prompt)
     // 结果: {"amount": 25, "category": "餐饮", "note": "咖啡"}
 
-                // 3. 存入 CoreData
-                saveTransaction(json)
+            // 3. 存入 CoreData
+            saveTransaction(json)
 }</code></pre>
-        </div>
+        </div >
     `,
 
     "3.1.12 开发 Elon Musk 多语言简历网站: 理解国际化 + 开发出海": `
