@@ -247,20 +247,115 @@
                     <i class="fa-solid fa-circle-info"></i> 支付后请联系客服获取激活码<br>
                     客服微信: <strong>Antigravity_AI</strong>
                 </p>
+                <li><a href="#">3.1.25 用可逆...</a></li>
+                </ul>
+            </div>
+            <div class="sub-chapter">
+                <h3>3.2 利用 AI 极速搭建项目</h3>
+                <ul class="lesson-list">
+                    <li><a href="#">3.2.1 基于模版，拥有你的第一个博客!</a></li>
+                    <li><a href="#">3.2.2 ShipAny: 1小时开发...</a></li>
+                    <li><a href="#">3.2.3 MixSaaS 模版: ...</a></li>
+                    <li><a href="#">3.2.4 EasyApp 模版: ...</a></li>
+                </ul>
+            </div>
+            <div class="sub-chapter">
+                <h3>3.3 无需部分代码的后端服务</h3>
+                <ul class="lesson-list">
+                    <li><a href="#">3.3.1 Vercel 部署: 免费托管你的网站项目</a></li>
+                    <li><a href="#">3.3.2 新手起步好: 在 Zeabur 部署你的所有服务</a></li>
+                </ul>
+            </div>
+        </div>
+        </section>
+    </div>
+
+    <!-- Lesson View -->
+    <div id="lesson-view" style="display: none;">
+        <button id="back-to-course" class="btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i> 返回课程大纲
+        </button>
+        <div id="lesson-content-container">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+    </main>
+    </div>
+
+    <!-- Unlock Bar (Fixed Bottom) -->
+    <div class="unlock-bar" id="unlock-bar">
+        <div class="unlock-info">
+            <span class="unlock-text">解锁全栈开发完整版</span>
+            <span class="unlock-price">¥299.00</span>
+        </div>
+        <button class="btn-unlock" onclick="openPaymentModal()">立即解锁</button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content payment-content">
+            <span class="payment-close">&times;</span>
+            <div class="payment-header">
+                <h2>解锁完整课程</h2>
+                <p class="payment-subtitle">一次付费，永久更新</p>
+            </div>
+
+            <div class="payment-methods">
+                <div class="method-tabs">
+                    <button class="method-btn active" data-method="wechat" onclick="switchPaymentMethod('wechat')">
+                        <i class="fa-brands fa-weixin"></i> 微信支付
+                    </button>
+                    <button class="method-btn" data-method="alipay" onclick="switchPaymentMethod('alipay')">
+                        <i class="fa-brands fa-alipay"></i> 支付宝
+                    </button>
+                </div>
+
+                <div class="qr-container">
+                    <div class="price-tag">¥299.00</div>
+
+                    <!-- WeChat QR -->
+                    <div id="qr-wechat" class="qr-code-box">
+                        <img src="wechat-pay.jpg" alt="微信支付二维码" class="qr-img">
+                        <p class="qr-tip">请使用微信扫码支付</p>
+                    </div>
+
+                    <!-- Alipay QR -->
+                    <div id="qr-alipay" class="qr-code-box" style="display: none;">
+                        <img src="alipay-pay.jpg" alt="支付宝二维码" class="qr-img">
+                        <p class="qr-tip">请使用支付宝扫码支付</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activation Code Section -->
+            <div class="activation-section">
+                <div class="activation-input-group">
+                    <input type="text" id="activation-code" placeholder="输入激活码解锁 (支付后获取)" class="activation-input">
+                    <button class="btn-verify" onclick="verifyActivationCode()">验证</button>
+                </div>
+                <div id="verify-message" class="verify-message"></div>
+                <p class="activation-tip">
+                    <i class="fa-solid fa-circle-info"></i> 支付后请联系客服获取激活码<br>
+                    客服微信: <strong>Antigravity_AI</strong>
+                </p>
             </div>
 
             <div class="payment-footer">
                 <button class="btn-secondary"
                     onclick="document.getElementById('payment-modal').style.display='none'">暂不购买</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-    <script src="content.js"></script>
-    <script src="script.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+                <script src="content.js"></script>
+                <script src="script.js"></script>
 </body>
 
 </html>
