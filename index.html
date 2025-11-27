@@ -1,361 +1,348 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<div class="progress-bar" id="progress-bar"></div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 编程完全指南 - Antigravity + AI 实战课程</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="unlock-bar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-</head>
-
-<body>
-    <div class="progress-bar" id="progress-bar"></div>
-
-    <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h1>AI 编程完全指南</h1>
-                <button class="theme-toggle" id="theme-toggle">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="搜索课程...">
-                <i class="fa-solid fa-search"></i>
-            </div>
-
-            <nav class="sidebar-nav">
-                <div class="nav-item active">
-                    <i class="fa-solid fa-book"></i>
-                    <span>课程目录</span>
-                </div>
-            </nav>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Course View -->
-            <div id="course-view">
-                <!-- Chapter 1 - 改为 Antigravity -->
-                <section class="chapter-card" id="chapter1">
-                    <div class="chapter-header">
-                        <div class="chapter-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <h2>第一章 Antigravity AI 编程入门</h2>
-                    </div>
-                    <div class="chapter-body">
-                        <div class="sub-chapter">
-                            <h3>1.1 Antigravity 编辑器入门</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">1. Antigravity 的简介和安装</a></li>
-                                <li><a href="#">2. 熟悉 Antigravity 界面的工作区</a></li>
-                                <li><a href="#">3. Antigravity 的核心功能: Chat</a></li>
-                                <li><a href="#">4. Antigravity Rules 规则</a></li>
-                                <li><a href="#">5. Antigravity 2.0 Agent 大更新 (必看)</a></li>
-                            </ul>
-                        </div>
-                        <div class="sub-chapter">
-                            <h3>1.2 AI 时代下的开发环境，超简单!</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">1.2.1 安装 Git</a></li>
-                                <li><a href="#">1.2.2 安装 Node.js</a></li>
-                                <li><a href="#">1.2.3 安装 Python</a></li>
-                            </ul>
-                        </div>
-                        <div class="sub-chapter">
-                            <h3>1.3 新手 AI 实战核心概念 + 最佳实践</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">1.3.1 AI 时代下的编程核心概念 + 最佳实践</a></li>
-                                <li><a href="#">1.3.2 新手入门实战必备概念 + 最佳实践</a></li>
-                                <li><a href="#">1.3.3 Git 入门: 必学! AI 编程协作基石</a></li>
-                                <li><a href="#">1.3.4 AI 编程的应用在全栈编程实践</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Chapter 2 -->
-                <section class="chapter-card" id="chapter2">
-                    <div class="chapter-header">
-                        <div class="chapter-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                        <h2>第二章 AI 编程进阶</h2>
-                    </div>
-                    <div class="chapter-body">
-                        <div class="sub-chapter">
-                            <h3>2.1 编程语言和框架</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">2.1.1 AI 辅助下的前端开发: NextJS 实战基础入门</a></li>
-                                <li><a href="#">2.1.2 AI 辅助下的后端开发入门: Python 的基本使用</a></li>
-                                <li><a href="#">2.1.3 AI 辅助下的后端开发入门: 用 Flask 实现一个简单的 API</a></li>
-                                <li><a href="#">2.1.4 AI 时代的数据库开发 + AI 编写 SQL 指南</a></li>
-                            </ul>
-                        </div>
-                        <div class="sub-chapter">
-                            <h3>2.2 AI 驱动的云平台实战</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">2.2.1 新手友好的腾讯云 CloudBase</a></li>
-                                <li><a href="#">1. 认识腾讯云开发 CloudBase</a></li>
-                                <li><a href="#">2. 开发 AI 客服后台</a></li>
-                                <li><a href="#">3. 完成用户登录</a></li>
-                                <li><a href="#">4. 完成 AI 客服核心功能</a></li>
-                                <li><a href="#">5. 完成发布作品的见证</a></li>
-                                <li><a href="#">2.2.2 出海必备 - Supabase 完全指南</a></li>
-                                <li><a href="#">1. 什么是 Supabase?</a></li>
-                                <li><a href="#">2. 给项目初始化数据库表</a></li>
-                                <li><a href="#">3. 轻松接入 Supabase</a></li>
-                                <li><a href="#">4. 轻松接入邮件鉴权注册功能 (Auth)</a></li>
-                                <li><a href="#">5. 用 Antigravity 给 Todo List 实现增删改查 (Database)</a></li>
-                                <li><a href="#">6. 增加文件上传功能 (Storage)</a></li>
-                                <li><a href="#">7. 给应用增加实时功能 (Realtime)</a></li>
-                                <li><a href="#">8. 数据安全设置 (RLS)</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Chapter 3 -->
-                <section class="chapter-card" id="chapter3">
-                    <div class="chapter-header">
-                        <div class="chapter-icon"><i class="fa-solid fa-project-diagram"></i></div>
-                        <h2>第三章 项目实战 (持续更新中...)</h2>
-                    </div>
-                    <div class="chapter-body">
-                        <div class="sub-chapter">
-                            <h3>3.1 AI 应用开发实战</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">3.1.1 快速部署 DeepSeek R1 私有模型</a></li>
-                                <li><a href="#">3.1.2 开发 Chrome 插件: 把上网助手变成生产力外挂</a></li>
-                                <li><a href="#">3.1.3 开发一个能赚钱的网站: 接入国内个人支付 (无需营业执照)</a></li>
-                                <li><a href="#">3.1.4 用 DeepSeek + Qwen-VL 做一个 AI 办公流应用</a></li>
-                                <li><a href="#">3.1.5 复刻一个 Midjourney: 登录 + 遇文生图 + 支付 + token 管理</a></li>
-                                <li><a href="#">3.1.6 用 Chrome 插件抓取一切网页数据</a></li>
-                                <li><a href="#">3.1.7 使用 v0 + supabase + Antigravity 创建一个导航站(上)</a></li>
-                                <li><a href="#">3.1.8 使用 Antigravity + supabase + ChatGPT o3 开发端侧后台(下)</a></li>
-                                <li><a href="#">3.1.9 用 lovable + 视觉模型: 开发扫描识别并提取数据的 H5</a></li>
-                                <li><a href="#">3.1.10 全栈天气 OOTD 小程序: 文生图</a></li>
-                                <li><a href="#">3.1.11 iOS 应用开发: 开发一款 AI 消费记账软件 (基于 Owen Omni)</a></li>
-                                <li><a href="#">3.1.12 开发 Elon Musk 多语言简历网站: 理解国际化 + 开发出海</a></li>
-                                <li><a href="#">3.1.13 AI 全自动少儿编程: DeepSeek 如何手把手教你?</a></li>
-                                <li><a href="#">3.1.14 Claude Code 入门: 开发一个超酷炫的 AI 编程文档工具</a></li>
-                                <li><a href="#">3.1.15 Creem 支付完整入门(上): 新手最容易接入的海外支付方式!</a></li>
-                                <li><a href="#">3.1.16 Creem 支付完整入门(下): 让全世界资本来买单!</a></li>
-                                <li><a href="#">3.1.17 N8N + Claude Code: 自动获取 RSS 并在...</a></li>
-                                <li><a href="#">3.1.18 N8N MCP + CC: 开发一个...</a></li>
-                                <li><a href="#">3.1.19 Dify Agent 实战(上): ...</a></li>
-                                <li><a href="#">3.1.20 Dify Agent 实战(下): ...</a></li>
-                                <li><a href="#">3.1.21 用 Claude Code 开发...</a></li>
-                                <li><a href="#">3.1.22 Codex 入门...</a></li>
-                                <li><a href="#">3.1.23 Github Spec kit...</a></li>
-                                <li><a href="#">3.1.24 MCP 完整实战...</a></li>
-                                <li><a href="#">3.1.25 用可逆...</a></li>
-                            </ul>
-                        </div>
-                        <div class="sub-chapter">
-                            <h3>3.2 利用 AI 极速搭建项目</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">3.2.1 基于模版，拥有你的第一个博客!</a></li>
-                                <li><a href="#">3.2.2 ShipAny: 1小时开发...</a></li>
-                                <li><a href="#">3.2.3 MixSaaS 模版: ...</a></li>
-                                <li><a href="#">3.2.4 EasyApp 模版: ...</a></li>
-                            </ul>
-                        </div>
-                        <div class="sub-chapter">
-                            <h3>3.3 无需部分代码的后端服务</h3>
-                            <ul class="lesson-list">
-                                <li><a href="#">3.3.1 Vercel 部署: 免费托管你的网站项目</a></li>
-                                <li><a href="#">3.3.2 新手起步好: 在 Zeabur 部署你的所有服务</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Lesson View -->
-            <div id="lesson-view" style="display: none;">
-                <button id="back-to-course" class="btn-secondary">
-                    <i class="fa-solid fa-arrow-left"></i> 返回课程大纲
-                </button>
-                <div id="lesson-content-container">
-                    <!-- Content will be loaded here -->
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Unlock Bar (Fixed Bottom) -->
-    <div class="unlock-bar" id="unlock-bar">
-        <div class="unlock-info">
-            <span class="unlock-text">解锁全栈开发完整版</span>
-            <span class="unlock-price">¥299.00</span>
+<div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>AI 编程完全指南</h1>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </div>
-        <button class="btn-unlock" onclick="openPaymentModal()">立即解锁</button>
-    </div>
 
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <i class="fa-solid fa-bars"></i>
-    </button>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="搜索课程...">
+            <i class="fa-solid fa-search"></i>
+        </div>
 
-    <!-- Payment Modal -->
-    <div id="payment-modal" class="modal">
-        <div class="modal-content payment-content">
-            <span class="payment-close">&times;</span>
-            <div class="payment-header">
-                <h2>解锁完整课程</h2>
-                <p class="payment-subtitle">一次付费，永久更新</p>
+        <nav class="sidebar-nav">
+            <div class="nav-item active">
+                <i class="fa-solid fa-book"></i>
+                <span>课程目录</span>
             </div>
+        </nav>
+    </aside>
 
-            <div class="payment-methods">
-                <div class="method-tabs">
-                    <button class="method-btn active" data-method="wechat" onclick="switchPaymentMethod('wechat')">
-                        <i class="fa-brands fa-weixin"></i> 微信支付
-                    </button>
-                    <button class="method-btn" data-method="alipay" onclick="switchPaymentMethod('alipay')">
-                        <i class="fa-brands fa-alipay"></i> 支付宝
-                    </button>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Course View -->
+        <div id="course-view">
+            <!-- Chapter 1 - 改为 Antigravity -->
+            <section class="chapter-card" id="chapter1">
+                <div class="chapter-header">
+                    <div class="chapter-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h2>第一章 Antigravity AI 编程入门</h2>
                 </div>
-
-                <div class="qr-container">
-                    <div class="price-tag">¥299.00</div>
-
-                    <!-- WeChat QR -->
-                    <div id="qr-wechat" class="qr-code-box">
-                        <img src="wechat-pay.jpg" alt="微信支付二维码" class="qr-img">
-                        <p class="qr-tip">请使用微信扫码支付</p>
+                <div class="chapter-body">
+                    <div class="sub-chapter">
+                        <h3>1.1 Antigravity 编辑器入门</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">1. Antigravity 的简介和安装</a></li>
+                            <li><a href="#">2. 熟悉 Antigravity 界面的工作区</a></li>
+                            <li><a href="#">3. Antigravity 的核心功能: Chat</a></li>
+                            <li><a href="#">4. Antigravity Rules 规则</a></li>
+                            <li><a href="#">5. Antigravity 2.0 Agent 大更新 (必看)</a></li>
+                        </ul>
                     </div>
-
-                    <!-- Alipay QR -->
-                    <div id="qr-alipay" class="qr-code-box" style="display: none;">
-                        <img src="alipay-pay.jpg" alt="支付宝二维码" class="qr-img">
-                        <p class="qr-tip">请使用支付宝扫码支付</p>
+                    <div class="sub-chapter">
+                        <h3>1.2 AI 时代下的开发环境，超简单!</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">1.2.1 安装 Git</a></li>
+                            <li><a href="#">1.2.2 安装 Node.js</a></li>
+                            <li><a href="#">1.2.3 安装 Python</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-chapter">
+                        <h3>1.3 新手 AI 实战核心概念 + 最佳实践</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">1.3.1 AI 时代下的编程核心概念 + 最佳实践</a></li>
+                            <li><a href="#">1.3.2 新手入门实战必备概念 + 最佳实践</a></li>
+                            <li><a href="#">1.3.3 Git 入门: 必学! AI 编程协作基石</a></li>
+                            <li><a href="#">1.3.4 AI 编程的应用在全栈编程实践</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Activation Code Section -->
-            <div class="activation-section">
-                <div class="activation-input-group">
-                    <input type="text" id="activation-code" placeholder="输入激活码解锁 (支付后获取)" class="activation-input">
-                    <button class="btn-verify" onclick="verifyActivationCode()">验证</button>
+            <!-- Chapter 2 -->
+            <section class="chapter-card" id="chapter2">
+                <div class="chapter-header">
+                    <div class="chapter-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h2>第二章 AI 编程进阶</h2>
                 </div>
-                <div id="verify-message" class="verify-message"></div>
-                <p class="activation-tip">
-                    <i class="fa-solid fa-circle-info"></i> 支付后请联系客服获取激活码<br>
-                    客服微信: <strong>Antigravity_AI</strong>
-                </p>
-                <li><a href="#">3.1.25 用可逆...</a></li>
-                </ul>
-            </div>
-            <div class="sub-chapter">
-                <h3>3.2 利用 AI 极速搭建项目</h3>
-                <ul class="lesson-list">
-                    <li><a href="#">3.2.1 基于模版，拥有你的第一个博客!</a></li>
-                    <li><a href="#">3.2.2 ShipAny: 1小时开发...</a></li>
-                    <li><a href="#">3.2.3 MixSaaS 模版: ...</a></li>
-                    <li><a href="#">3.2.4 EasyApp 模版: ...</a></li>
-                </ul>
-            </div>
-            <div class="sub-chapter">
-                <h3>3.3 无需部分代码的后端服务</h3>
-                <ul class="lesson-list">
-                    <li><a href="#">3.3.1 Vercel 部署: 免费托管你的网站项目</a></li>
-                    <li><a href="#">3.3.2 新手起步好: 在 Zeabur 部署你的所有服务</a></li>
-                </ul>
+                <div class="chapter-body">
+                    <div class="sub-chapter">
+                        <h3>2.1 编程语言和框架</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">2.1.1 AI 辅助下的前端开发: NextJS 实战基础入门</a></li>
+                            <li><a href="#">2.1.2 AI 辅助下的后端开发入门: Python 的基本使用</a></li>
+                            <li><a href="#">2.1.3 AI 辅助下的后端开发入门: 用 Flask 实现一个简单的 API</a></li>
+                            <li><a href="#">2.1.4 AI 时代的数据库开发 + AI 编写 SQL 指南</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-chapter">
+                        <h3>2.2 AI 驱动的云平台实战</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">2.2.1 新手友好的腾讯云 CloudBase</a></li>
+                            <li><a href="#">1. 认识腾讯云开发 CloudBase</a></li>
+                            <li><a href="#">2. 开发 AI 客服后台</a></li>
+                            <li><a href="#">3. 完成用户登录</a></li>
+                            <li><a href="#">4. 完成 AI 客服核心功能</a></li>
+                            <li><a href="#">5. 完成发布作品的见证</a></li>
+                            <li><a href="#">2.2.2 出海必备 - Supabase 完全指南</a></li>
+                            <li><a href="#">1. 什么是 Supabase?</a></li>
+                            <li><a href="#">2. 给项目初始化数据库表</a></li>
+                            <li><a href="#">3. 轻松接入 Supabase</a></li>
+                            <li><a href="#">4. 轻松接入邮件鉴权注册功能 (Auth)</a></li>
+                            <li><a href="#">5. 用 Antigravity 给 Todo List 实现增删改查 (Database)</a></li>
+                            <li><a href="#">6. 增加文件上传功能 (Storage)</a></li>
+                            <li><a href="#">7. 给应用增加实时功能 (Realtime)</a></li>
+                            <li><a href="#">8. 数据安全设置 (RLS)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter 3 -->
+            <section class="chapter-card" id="chapter3">
+                <div class="chapter-header">
+                    <div class="chapter-icon"><i class="fa-solid fa-project-diagram"></i></div>
+                    <h2>第三章 项目实战 (持续更新中...)</h2>
+                </div>
+                <div class="chapter-body">
+                    <div class="sub-chapter">
+                        <h3>3.1 AI 应用开发实战</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">3.1.1 快速部署 DeepSeek R1 私有模型</a></li>
+                            <li><a href="#">3.1.2 开发 Chrome 插件: 把上网助手变成生产力外挂</a></li>
+                            <li><a href="#">3.1.3 开发一个能赚钱的网站: 接入国内个人支付 (无需营业执照)</a></li>
+                            <li><a href="#">3.1.4 用 DeepSeek + Qwen-VL 做一个 AI 办公流应用</a></li>
+                            <li><a href="#">3.1.5 复刻一个 Midjourney: 登录 + 遇文生图 + 支付 + token 管理</a></li>
+                            <li><a href="#">3.1.6 用 Chrome 插件抓取一切网页数据</a></li>
+                            <li><a href="#">3.1.7 使用 v0 + supabase + Antigravity 创建一个导航站(上)</a></li>
+                            <li><a href="#">3.1.8 使用 Antigravity + supabase + ChatGPT o3 开发端侧后台(下)</a></li>
+                            <li><a href="#">3.1.9 用 lovable + 视觉模型: 开发扫描识别并提取数据的 H5</a></li>
+                            <li><a href="#">3.1.10 全栈天气 OOTD 小程序: 文生图</a></li>
+                            <li><a href="#">3.1.11 iOS 应用开发: 开发一款 AI 消费记账软件 (基于 Owen Omni)</a></li>
+                            <li><a href="#">3.1.12 开发 Elon Musk 多语言简历网站: 理解国际化 + 开发出海</a></li>
+                            <li><a href="#">3.1.13 AI 全自动少儿编程: DeepSeek 如何手把手教你?</a></li>
+                            <li><a href="#">3.1.14 Claude Code 入门: 开发一个超酷炫的 AI 编程文档工具</a></li>
+                            <li><a href="#">3.1.15 Creem 支付完整入门(上): 新手最容易接入的海外支付方式!</a></li>
+                            <li><a href="#">3.1.16 Creem 支付完整入门(下): 让全世界资本来买单!</a></li>
+                            <li><a href="#">3.1.17 N8N + Claude Code: 自动获取 RSS 并在...</a></li>
+                            <li><a href="#">3.1.18 N8N MCP + CC: 开发一个...</a></li>
+                            <li><a href="#">3.1.19 Dify Agent 实战(上): ...</a></li>
+                            <li><a href="#">3.1.20 Dify Agent 实战(下): ...</a></li>
+                            <li><a href="#">3.1.21 用 Claude Code 开发...</a></li>
+                            <li><a href="#">3.1.22 Codex 入门...</a></li>
+                            <li><a href="#">3.1.23 Github Spec kit...</a></li>
+                            <li><a href="#">3.1.24 MCP 完整实战...</a></li>
+                            <li><a href="#">3.1.25 用可逆...</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-chapter">
+                        <h3>3.2 利用 AI 极速搭建项目</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">3.2.1 基于模版，拥有你的第一个博客!</a></li>
+                            <li><a href="#">3.2.2 ShipAny: 1小时开发...</a></li>
+                            <li><a href="#">3.2.3 MixSaaS 模版: ...</a></li>
+                            <li><a href="#">3.2.4 EasyApp 模版: ...</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-chapter">
+                        <h3>3.3 无需部分代码的后端服务</h3>
+                        <ul class="lesson-list">
+                            <li><a href="#">3.3.1 Vercel 部署: 免费托管你的网站项目</a></li>
+                            <li><a href="#">3.3.2 新手起步好: 在 Zeabur 部署你的所有服务</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Lesson View -->
+        <div id="lesson-view" style="display: none;">
+            <button id="back-to-course" class="btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i> 返回课程大纲
+            </button>
+            <div id="lesson-content-container">
+                <!-- Content will be loaded here -->
             </div>
         </div>
-        </section>
-    </div>
-
-    <!-- Lesson View -->
-    <div id="lesson-view" style="display: none;">
-        <button id="back-to-course" class="btn-secondary">
-            <i class="fa-solid fa-arrow-left"></i> 返回课程大纲
-        </button>
-        <div id="lesson-content-container">
-            <!-- Content will be loaded here -->
-        </div>
-    </div>
     </main>
-    </div>
+</div>
 
-    <!-- Unlock Bar (Fixed Bottom) -->
-    <div class="unlock-bar" id="unlock-bar">
-        <div class="unlock-info">
-            <span class="unlock-text">解锁全栈开发完整版</span>
-            <span class="unlock-price">¥299.00</span>
+<!-- Unlock Bar (Fixed Bottom) -->
+<div class="unlock-bar" id="unlock-bar">
+    <div class="unlock-info">
+        <span class="unlock-text">解锁全栈开发完整版</span>
+        <span class="unlock-price">¥299.00</span>
+    </div>
+    <button class="btn-unlock" onclick="openPaymentModal()">立即解锁</button>
+</div>
+
+<!-- Mobile Menu Button -->
+<button class="mobile-menu-btn" id="mobile-menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- Payment Modal -->
+<div id="payment-modal" class="modal">
+    <div class="modal-content payment-content">
+        <span class="payment-close">&times;</span>
+        <div class="payment-header">
+            <h2>解锁完整课程</h2>
+            <p class="payment-subtitle">一次付费，永久更新</p>
         </div>
-        <button class="btn-unlock" onclick="openPaymentModal()">立即解锁</button>
+
+        <div class="payment-methods">
+            <div class="method-tabs">
+                <button class="method-btn active" data-method="wechat" onclick="switchPaymentMethod('wechat')">
+                    <i class="fa-brands fa-weixin"></i> 微信支付
+                </button>
+                <button class="method-btn" data-method="alipay" onclick="switchPaymentMethod('alipay')">
+                    <i class="fa-brands fa-alipay"></i> 支付宝
+                </button>
+            </div>
+
+            <div class="qr-container">
+                <div class="price-tag">¥299.00</div>
+
+                <!-- WeChat QR -->
+                <div id="qr-wechat" class="qr-code-box">
+                    <img src="wechat-pay.jpg" alt="微信支付二维码" class="qr-img">
+                    <p class="qr-tip">请使用微信扫码支付</p>
+                </div>
+
+                <!-- Alipay QR -->
+                <div id="qr-alipay" class="qr-code-box" style="display: none;">
+                    <img src="alipay-pay.jpg" alt="支付宝二维码" class="qr-img">
+                    <p class="qr-tip">请使用支付宝扫码支付</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activation Code Section -->
+        <div class="activation-section">
+            <div class="activation-input-group">
+                <input type="text" id="activation-code" placeholder="输入激活码解锁 (支付后获取)" class="activation-input">
+                <button class="btn-verify" onclick="verifyActivationCode()">验证</button>
+            </div>
+            <div id="verify-message" class="verify-message"></div>
+            <p class="activation-tip">
+                <i class="fa-solid fa-circle-info"></i> 支付后请联系客服获取激活码<br>
+                客服微信: <strong>Antigravity_AI</strong>
+            </p>
+            <li><a href="#">3.1.25 用可逆...</a></li>
+            </ul>
+        </div>
+        <div class="sub-chapter">
+            <h3>3.2 利用 AI 极速搭建项目</h3>
+            <ul class="lesson-list">
+                <li><a href="#">3.2.1 基于模版，拥有你的第一个博客!</a></li>
+                <li><a href="#">3.2.2 ShipAny: 1小时开发...</a></li>
+                <li><a href="#">3.2.3 MixSaaS 模版: ...</a></li>
+                <li><a href="#">3.2.4 EasyApp 模版: ...</a></li>
+            </ul>
+        </div>
+        <div class="sub-chapter">
+            <h3>3.3 无需部分代码的后端服务</h3>
+            <ul class="lesson-list">
+                <li><a href="#">3.3.1 Vercel 部署: 免费托管你的网站项目</a></li>
+                <li><a href="#">3.3.2 新手起步好: 在 Zeabur 部署你的所有服务</a></li>
+            </ul>
+        </div>
     </div>
+    </section>
+</div>
 
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <i class="fa-solid fa-bars"></i>
+<!-- Lesson View -->
+<div id="lesson-view" style="display: none;">
+    <button id="back-to-course" class="btn-secondary">
+        <i class="fa-solid fa-arrow-left"></i> 返回课程大纲
     </button>
+    <div id="lesson-content-container">
+        <!-- Content will be loaded here -->
+    </div>
+</div>
+</main>
+</div>
 
-    <!-- Payment Modal -->
-    <div id="payment-modal" class="modal">
-        <div class="modal-content payment-content">
-            <span class="payment-close">&times;</span>
-            <div class="payment-header">
-                <h2>解锁完整课程</h2>
-                <p class="payment-subtitle">一次付费，永久更新</p>
+<!-- Unlock Bar (Fixed Bottom) -->
+<div class="unlock-bar" id="unlock-bar">
+    <div class="unlock-info">
+        <span class="unlock-text">解锁全栈开发完整版</span>
+        <span class="unlock-price">¥299.00</span>
+    </div>
+    <button class="btn-unlock" onclick="openPaymentModal()">立即解锁</button>
+</div>
+
+<!-- Mobile Menu Button -->
+<button class="mobile-menu-btn" id="mobile-menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- Payment Modal -->
+<div id="payment-modal" class="modal">
+    <div class="modal-content payment-content">
+        <span class="payment-close">&times;</span>
+        <div class="payment-header">
+            <h2>解锁完整课程</h2>
+            <p class="payment-subtitle">一次付费，永久更新</p>
+        </div>
+
+        <div class="payment-methods">
+            <div class="method-tabs">
+                <button class="method-btn active" data-method="wechat" onclick="switchPaymentMethod('wechat')">
+                    <i class="fa-brands fa-weixin"></i> 微信支付
+                </button>
+                <button class="method-btn" data-method="alipay" onclick="switchPaymentMethod('alipay')">
+                    <i class="fa-brands fa-alipay"></i> 支付宝
+                </button>
             </div>
 
-            <div class="payment-methods">
-                <div class="method-tabs">
-                    <button class="method-btn active" data-method="wechat" onclick="switchPaymentMethod('wechat')">
-                        <i class="fa-brands fa-weixin"></i> 微信支付
-                    </button>
-                    <button class="method-btn" data-method="alipay" onclick="switchPaymentMethod('alipay')">
-                        <i class="fa-brands fa-alipay"></i> 支付宝
-                    </button>
+            <div class="qr-container">
+                <div class="price-tag">¥299.00</div>
+
+                <!-- WeChat QR -->
+                <div id="qr-wechat" class="qr-code-box">
+                    <img src="wechat-pay.jpg" alt="微信支付二维码" class="qr-img">
+                    <p class="qr-tip">请使用微信扫码支付</p>
                 </div>
 
-                <div class="qr-container">
-                    <div class="price-tag">¥299.00</div>
-
-                    <!-- WeChat QR -->
-                    <div id="qr-wechat" class="qr-code-box">
-                        <img src="wechat-pay.jpg" alt="微信支付二维码" class="qr-img">
-                        <p class="qr-tip">请使用微信扫码支付</p>
-                    </div>
-
-                    <!-- Alipay QR -->
-                    <div id="qr-alipay" class="qr-code-box" style="display: none;">
-                        <img src="alipay-pay.jpg" alt="支付宝二维码" class="qr-img">
-                        <p class="qr-tip">请使用支付宝扫码支付</p>
-                    </div>
+                <!-- Alipay QR -->
+                <div id="qr-alipay" class="qr-code-box" style="display: none;">
+                    <img src="alipay-pay.jpg" alt="支付宝二维码" class="qr-img">
+                    <p class="qr-tip">请使用支付宝扫码支付</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Activation Code Section -->
-            <div class="activation-section">
-                <div class="activation-input-group">
-                    <input type="text" id="activation-code" placeholder="输入激活码解锁 (支付后获取)" class="activation-input">
-                    <button class="btn-verify" onclick="verifyActivationCode()">验证</button>
-                </div>
-                <div id="verify-message" class="verify-message"></div>
-                <p class="activation-tip">
-                    <i class="fa-solid fa-circle-info"></i> 支付后请联系客服获取激活码<br>
-                    客服微信: <strong>Antigravity_AI</strong>
-                </p>
+        <!-- Activation Code Section -->
+        <div class="activation-section">
+            <div class="activation-input-group">
+                <input type="text" id="activation-code" placeholder="输入激活码解锁 (支付后获取)" class="activation-input">
+                <button class="btn-verify" onclick="verifyActivationCode()">验证</button>
             </div>
+            <div id="verify-message" class="verify-message"></div>
+            <p class="activation-tip">
+                <i class="fa-solid fa-circle-info"></i> 支付后请联系客服获取激活码<br>
+                客服微信: <strong>Antigravity_AI</strong>
+            </p>
+        </div>
 
-            <div class="payment-footer">
-                <button class="btn-secondary"
-                    onclick="document.getElementById('payment-modal').style.display='none'">暂不购买</button>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-                <script
-                    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-                <script
-                    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-                <script src="content.js"></script>
-                <script src="script.js"></script>
-</body>
+        <div class="payment-footer">
+            <button class="btn-secondary"
+                onclick="document.getElementById('payment-modal').style.display='none'">暂不购买</button>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+            <script src="content.js"></script>
+            <script src="script.js"></script>
+            </body>
 
 </html>
