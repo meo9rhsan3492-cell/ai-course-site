@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>付费功能测试</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .info {
+            color: blue;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>付费功能调试工具</h1>
+
+    <div id="status"></div>
+
+    <h2>当前状态</h2>
+    <div id="current-state"></div>
+
+    <h2>操作</h2>
+    <button onclick="clearCache()">清除localStorage</button>
+    <button onclick="checkLocks()">检查锁定状态</button>
+    <button onclick="testPayment()">测试支付弹窗</button>
+    <button onclick="window.location.href='index.html'">返回主页</button>
+
+    <h2>课程列表</h2>
+    <div id="lessons"></div>
+
+    <script>
+        window.onload = function () {
+            updateStatus();
+        };
+
+        function updateStatus() {
+            const isPaid = localStorage.getItem('isPaid') === 'true';
+            const statusDiv = document.getElementById('status');
+            const stateDiv = document.getElementById('current-state');
+
+            statusDiv.innerHTML = isPaid
+                ? '<p class="success">✅ 当前状态：已付费</p>'
+                : '<p class="error">❌ 当前状态：未付费</p>';
+
+            // Load from external file
+            const script = document.createElement('script');
+            script.src = 'content.js';
+            script.onload = function () {
+                if (typeof window.courseData !== 'undefined') {
+                    const lessons = Object.keys(window.courseData);
+                    stateDiv.innerHTML = `
+                        <p class="info">📚 检测到 ${lessons.length} 篇课程</p>
+                        <p class="info">🔓 前3篇免费：${lessons.slice(0, 3).join(', ')}</p>
+                        <p class="info">🔒 需要付费：从第${4}篇开始</p>
+                    `;
+
+                    // Display lesson list
+                    const lessonsDiv = document.getElementById('lessons');
+                    lessonsDiv.innerHTML = lessons.slice(0, 10).map((title, index) => {
+                        const isFree = index < 3;
+                        const status = isFree ? '🔓 免费' : '🔒 付费';
+                        const className = isFree ? 'success' : 'error';
+                        return `<p class="${className}">${index + 1}. ${title} - ${status}</p>`;
+                    }).join('');
+                } else {
+                    stateDiv.innerHTML = '<p class="error">❌ 错误：courseData未加载！</p>';
+                }
+            };
+            document.head.appendChild(script);
+        }
+
+        function clearCache() {
+            localStorage.clear();
+            alert('localStorage已清除！页面将刷新。');
+            window.location.reload();
+        }
+
+        function checkLocks() {
+            alert('请打开浏览器开发者工具(F12)，切换到Console标签，然后返回主页查看锁定图标。');
+            console.log('=== 锁定功能检查 ===');
+            console.log('免费课程：前3篇');
+            console.log('付费课程：第4篇及之后');
+            console.log('当前付费状态：', localStorage.getItem('isPaid'));
+        }
+
+        function testPayment() {
+            localStorage.setItem('isPaid', 'true');
+            alert('已模拟付费成功！返回主页查看所有课程已解锁。');
+        }
+    </script>
+</body>
+
+</html>
