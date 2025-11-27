@@ -764,6 +764,8 @@ print(welcome("Bob"))    # 输出: Welcome, Bob</code></pre>
                 <p>第一章结束！你已经准备好环境和思维了。下一章，我们将开始真正的<strong>实战开发</strong>！🚀</p>
             </div>
         </div>
+    `,
+
     "2.1.1 AI 辅助下的前端开发: NextJS 实战基础入门": `
         < div class= "lesson-content" >
             <h2>2.1.1 AI 辅助下的前端开发: NextJS 实战基础入门</h2>
@@ -1026,10 +1028,10 @@ const { data, error } = await supabase
 create policy "Individuals can view their own todos."
 on todos for select
 using ( auth.uid() = user_id );</code></pre>
-        </div >
-    ,
+        </div>
+    `,
     "3.1.1 快速部署 DeepSeek R1 私有模型": `
-        <div class="lesson-content">
+        < div class= "lesson-content" >
             <h2>3.1.1 快速部署 DeepSeek R1 私有模型</h2>
             <p><strong>目标：</strong> 在本地或云端服务器部署高性能开源模型 DeepSeek R1。</p>
             <p>使用 Ollama 是最简单的方式：</p>
@@ -1040,8 +1042,8 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama run deepseek-r1</code></pre>
         </div>
     `,
-        "3.1.2 开发 Chrome 插件: 把上网助手变成生产力外挂": `
-        <div class="lesson-content">
+    "3.1.2 开发 Chrome 插件: 把上网助手变成生产力外挂": `
+    < div class="lesson-content" >
             <h2>3.1.2 开发 Chrome 插件</h2>
             <p><strong>目标：</strong> 编写一个 Chrome 扩展，利用 AI 总结网页内容。</p>
             <p>核心文件 <code>manifest.json</code>:</p>
@@ -1052,182 +1054,182 @@ ollama run deepseek-r1</code></pre>
   "permissions": ["activeTab"],
   "action": { "default_popup": "popup.html" }
 }</code></pre>
-        </div>
+        </div >
     `,
-            "3.1.3 开发一个能赚钱的网站: 接入国内个人支付 (无需营业执照)": `
-        <div class="lesson-content">
+    "3.1.3 开发一个能赚钱的网站: 接入国内个人支付 (无需营业执照)": `
+    < div class="lesson-content" >
             <h2>3.1.3 接入国内个人支付</h2>
             <p><strong>方案：</strong> 使用"面包多"、"爱发电"等平台的 API，或者使用支付宝/微信的当面付（需要个体户）。</p>
             <p>最简单的个人方案是使用第三方免签支付网关（注意风险），或者使用发卡平台。</p>
-        </div>
+        </div >
     `,
-                "3.1.4 用 DeepSeek + Qwen-VL 做一个 AI 办公流应用": `
-        <div class="lesson-content">
+    "3.1.4 用 DeepSeek + Qwen-VL 做一个 AI 办公流应用": `
+    < div class="lesson-content" >
             <h2>3.1.4 AI 办公流应用</h2>
             <p>结合文本模型 (DeepSeek) 和视觉模型 (Qwen-VL) 实现文档分析、发票识别等自动化流程。</p>
-        </div>
+        </div >
     `,
-                    "3.1.5 复刻一个 Midjourney: 登录 + 遇文生图 + 支付 + token 管理": `
-        <div class="lesson-content">
+    "3.1.5 复刻一个 Midjourney: 登录 + 遇文生图 + 支付 + token 管理": `
+    < div class="lesson-content" >
             <h2>3.1.5 复刻 Midjourney</h2>
             <p><strong>架构：</strong> Next.js 前端 + Supabase 后端 + Replicate API (调用 Stable Diffusion)。</p>
             <p>实现积分扣除机制：每次生成图片扣除用户 Token。</p>
-        </div>
+        </div >
     `,
-                        "3.1.6 用 Chrome 插件抓取一切网页数据": `
-        <div class="lesson-content">
+    "3.1.6 用 Chrome 插件抓取一切网页数据": `
+    < div class="lesson-content" >
             <h2>3.1.6 Chrome 插件爬虫</h2>
             <p>利用 Chrome 插件的权限，注入 Content Script 到页面，提取 DOM 数据并发送到后端。</p>
-        </div>
+        </div >
     `,
-                            "3.1.7 使用 v0 + supabase + Antigravity 创建一个导航站(上)": `
-        <div class="lesson-content">
+    "3.1.7 使用 v0 + supabase + Antigravity 创建一个导航站(上)": `
+    < div class="lesson-content" >
             <h2>3.1.7 AI 导航站开发 (上)</h2>
             <p>使用 Vercel v0 生成 UI，Supabase 存储链接数据，Antigravity 编写业务逻辑。</p>
-        </div>
+        </div >
     `,
-                                "3.1.8 使用 Antigravity + supabase + ChatGPT o3 开发端侧后台(下)": `
-        <div class="lesson-content">
+    "3.1.8 使用 Antigravity + supabase + ChatGPT o3 开发端侧后台(下)": `
+    < div class="lesson-content" >
             <h2>3.1.8 AI 导航站开发 (下)</h2>
             <p>开发管理后台，实现链接的增删改查，并接入 ChatGPT o3 自动生成网站简介。</p>
-        </div>
+        </div >
     `,
-                                    "3.1.9 用 lovable + 视觉模型: 开发扫描识别并提取数据的 H5": `
-        <div class="lesson-content">
+    "3.1.9 用 lovable + 视觉模型: 开发扫描识别并提取数据的 H5": `
+    < div class="lesson-content" >
             <h2>3.1.9 视觉识别 H5</h2>
             <p>使用 Lovable (No-code/Low-code) 平台快速搭建前端，调用 GPT-4V 或 Qwen-VL API 进行图片识别。</p>
-        </div>
+        </div >
     `,
-                                        "3.1.10 全栈天气 OOTD 小程序: 文生图": `
-        <div class="lesson-content">
+    "3.1.10 全栈天气 OOTD 小程序: 文生图": `
+    < div class="lesson-content" >
             <h2>3.1.10 天气 OOTD 小程序</h2>
             <p>获取天气 API 数据 -> 生成穿搭建议 Prompt -> 调用 SDXL 生成穿搭图片。</p>
-        </div>
+        </div >
     `,
-                                            "3.1.11 iOS 应用开发: 开发一款 AI 消费记账软件 (基于 Owen Omni)": `
-        <div class="lesson-content">
+    "3.1.11 iOS 应用开发: 开发一款 AI 消费记账软件 (基于 Owen Omni)": `
+    < div class="lesson-content" >
             <h2>3.1.11 iOS AI 记账</h2>
             <p>使用 SwiftUI 开发 iOS 界面，接入 OpenAI Whisper 实现语音记账。</p>
-        </div>
+        </div >
     `,
-                                                "3.1.12 开发 Elon Musk 多语言简历网站: 理解国际化 + 开发出海": `
-        <div class="lesson-content">
+    "3.1.12 开发 Elon Musk 多语言简历网站: 理解国际化 + 开发出海": `
+    < div class="lesson-content" >
             <h2>3.1.12 多语言简历网站</h2>
             <p>使用 Next.js i18n 路由，结合 AI 翻译，快速生成多语言版本的个人主页。</p>
-        </div>
+        </div >
     `,
-                                                    "3.1.13 AI 全自动少儿编程: DeepSeek 如何手把手教你?": `
-        <div class="lesson-content">
+    "3.1.13 AI 全自动少儿编程: DeepSeek 如何手把手教你?": `
+    < div class="lesson-content" >
             <h2>3.1.13 AI 少儿编程</h2>
             <p>利用 DeepSeek 的推理能力，生成适合儿童的 Python 教学案例和互动练习。</p>
-        </div>
+        </div >
     `,
-                                                        "3.1.14 Claude Code 入门: 开发一个超酷炫的 AI 编程文档工具": `
-        <div class="lesson-content">
+    "3.1.14 Claude Code 入门: 开发一个超酷炫的 AI 编程文档工具": `
+    < div class="lesson-content" >
             <h2>3.1.14 Claude Code 文档工具</h2>
             <p>使用 Claude 的长上下文能力，分析整个代码库，自动生成 API 文档和架构图。</p>
-        </div>
+        </div >
     `,
-                                                            "3.1.15 Creem 支付完整入门(上): 新手最容易接入的海外支付方式!": `
-        <div class="lesson-content">
+    "3.1.15 Creem 支付完整入门(上): 新手最容易接入的海外支付方式!": `
+    < div class="lesson-content" >
             <h2>3.1.15 Creem 支付入门 (上)</h2>
             <p>注册 Creem 账号，获取 API Key，配置 Webhook。</p>
-        </div>
+        </div >
     `,
-                                                                "3.1.16 Creem 支付完整入门(下): 让全世界资本来买单!": `
-        <div class="lesson-content">
+    "3.1.16 Creem 支付完整入门(下): 让全世界资本来买单!": `
+    < div class="lesson-content" >
             <h2>3.1.16 Creem 支付入门 (下)</h2>
             <p>在 Next.js 中集成 Creem Checkout，处理支付回调，更新用户会员状态。</p>
-        </div>
+        </div >
     `,
-                                                                    "3.1.17 N8N + Claude Code: 自动获取 RSS 并在...": `
-        <div class="lesson-content">
+    "3.1.17 N8N + Claude Code: 自动获取 RSS 并在...": `
+    < div class="lesson-content" >
             <h2>3.1.17 N8N 自动化工作流</h2>
             <p>搭建 N8N 流程：读取 RSS -> Claude 总结 -> 发送到 Telegram/Discord。</p>
-        </div>
+        </div >
     `,
-                                                                        "3.1.18 N8N MCP + CC: 开发一个...": `
-        <div class="lesson-content">
+    "3.1.18 N8N MCP + CC: 开发一个...": `
+    < div class="lesson-content" >
             <h2>3.1.18 N8N MCP 实战</h2>
             <p>使用 Model Context Protocol (MCP) 连接 N8N 和本地 AI 模型。</p>
-        </div>
+        </div >
     `,
-                                                                            "3.1.19 Dify Agent 实战(上): ...": `
-        <div class="lesson-content">
+    "3.1.19 Dify Agent 实战(上): ...": `
+    < div class="lesson-content" >
             <h2>3.1.19 Dify Agent 实战 (上)</h2>
             <p>Dify 是开源的 LLM 应用开发平台。本节介绍如何搭建 Dify 知识库。</p>
-        </div>
+        </div >
     `,
-                                                                                "3.1.20 Dify Agent 实战(下): ...": `
-        <div class="lesson-content">
+    "3.1.20 Dify Agent 实战(下): ...": `
+    < div class="lesson-content" >
             <h2>3.1.20 Dify Agent 实战 (下)</h2>
             <p>在 Dify 中编排 Agent 工作流，接入外部 API 工具。</p>
-        </div>
+        </div >
     `,
-                                                                                    "3.1.21 用 Claude Code 开发...": `
-        <div class="lesson-content">
+    "3.1.21 用 Claude Code 开发...": `
+    < div class="lesson-content" >
             <h2>3.1.21 Claude Code 实战</h2>
             <p>深入探索 Claude Code 的高级功能。</p>
-        </div>
+        </div >
     `,
-                                                                                        "3.1.22 Codex 入门...": `
-        <div class="lesson-content">
+    "3.1.22 Codex 入门...": `
+    < div class="lesson-content" >
             <h2>3.1.22 Codex 入门</h2>
             <p>OpenAI Codex 模型的使用指南。</p>
-        </div>
+        </div >
     `,
-                                                                                            "3.1.23 Github Spec kit...": `
-        <div class="lesson-content">
+    "3.1.23 Github Spec kit...": `
+    < div class="lesson-content" >
             <h2>3.1.23 Github Spec Kit</h2>
             <p>使用 GitHub 最新工具包加速开发。</p>
-        </div>
+        </div >
     `,
-                                                                                                "3.1.24 MCP 完整实战...": `
-        <div class="lesson-content">
+    "3.1.24 MCP 完整实战...": `
+    < div class="lesson-content" >
             <h2>3.1.24 MCP 完整实战</h2>
             <p>构建一个完整的 MCP Server，连接你的本地数据和 AI。</p>
-        </div>
+        </div >
     `,
-                                                                                                    "3.1.25 用可逆...": `
-        <div class="lesson-content">
+    "3.1.25 用可逆...": `
+    < div class="lesson-content" >
             <h2>3.1.25 高级话题</h2>
             <p>探索 AI 编程的更多可能性。</p>
-        </div>
+        </div >
     `,
-                                                                                                        "3.2.1 基于模版，拥有你的第一个博客!": `
-        <div class="lesson-content">
+    "3.2.1 基于模版，拥有你的第一个博客!": `
+    < div class="lesson-content" >
             <h2>3.2.1 搭建个人博客</h2>
             <p>使用 Hugo 或 Hexo 模板，配合 GitHub Pages 免费部署。</p>
-        </div>
+        </div >
     `,
-                                                                                                            "3.2.2 ShipAny: 1小时开发...": `
-        <div class="lesson-content">
+    "3.2.2 ShipAny: 1小时开发...": `
+    < div class="lesson-content" >
             <h2>3.2.2 ShipAny 快速开发</h2>
             <p>使用 ShipAny 样板代码，快速启动 SaaS 项目。</p>
-        </div>
+        </div >
     `,
-                                                                                                                "3.2.3 MixSaaS 模版: ...": `
-        <div class="lesson-content">
+    "3.2.3 MixSaaS 模版: ...": `
+    < div class="lesson-content" >
             <h2>3.2.3 MixSaaS 模板</h2>
             <p>全功能的 SaaS 启动模板介绍。</p>
-        </div>
+        </div >
     `,
-                                                                                                                    "3.2.4 EasyApp 模版: ...": `
-        <div class="lesson-content">
+    "3.2.4 EasyApp 模版: ...": `
+    < div class="lesson-content" >
             <h2>3.2.4 EasyApp 模板</h2>
             <p>移动端应用开发模板。</p>
-        </div>
+        </div >
     `,
-                                                                                                                        "3.3.1 Vercel 部署: 免费托管你的网站项目": `
-        <div class="lesson-content">
+    "3.3.1 Vercel 部署: 免费托管你的网站项目": `
+    < div class="lesson-content" >
             <h2>3.3.1 Vercel 部署指南</h2>
             <p>连接 GitHub 仓库，一键部署 Next.js 应用到 Vercel 全球边缘网络。</p>
-        </div>
+        </div >
     `,
-                                                                                                                            "3.3.2 新手起步好: 在 Zeabur 部署你的所有服务": `
-        <div class="lesson-content">
+    "3.3.2 新手起步好: 在 Zeabur 部署你的所有服务": `
+    < div class="lesson-content" >
             <h2>3.3.2 Zeabur 部署指南</h2>
             <p>Zeabur 是国人开发的优秀部署平台，支持 Docker、Node.js、Python 等多种环境，服务器位于亚太地区，国内访问速度快。</p>
-        </div>
+        </div >
     `
 };
