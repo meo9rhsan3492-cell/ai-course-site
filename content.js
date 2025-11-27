@@ -1086,7 +1086,7 @@ function pay() {
     const orderId = createOrder();
     
     // 2. 跳转到面包多支付页
-    window.location.href = `https://mbd.pub/pay?order_id=${orderId}`;
+    window.location.href = \`https://mbd.pub/pay?order_id=\${orderId}\`;
 }
 
 // 3. 接收 Webhook 回调 (在后端)
