@@ -309,52 +309,43 @@ function switchPaymentMethod(method) {
         // Verify Activation Code
         async function verifyActivationCode() {
             const codeInput = document.getElementById('activation-code');
-            const statusEl = document.getElementById('payment-status');
-            const confirmBtn = document.querySelector('.btn-pay-confirm');
+            const msgEl = document.getElementById('verify-message');
             const code = codeInput.value.trim();
 
             if (!code) {
-                alert('请输入激活码');
+                msgEl.textContent = '❌ 请输入激活码';
+                msgEl.style.color = 'red';
                 return;
             }
 
-            // Change status to verifying
-            statusEl.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> 正在验证激活码...';
-            statusEl.style.color = '#3b82f6';
-            confirmBtn.disabled = true;
-            confirmBtn.textContent = '验证中...';
+            msgEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在验证...';
+            msgEl.style.color = '#666';
 
             try {
                 // Call backend API
-                // Call backend API
-                const API_BASE = ''; // Use relative path for production
-                const response = await fetch(`${API_BASE}/verify-code`, {
+                const response = await fetch('/api/verify-code', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ code })
                 });
 
                 const data = await response.json();
 
                 if (data.success) {
-                    statusEl.innerHTML = '<i class="fa-solid fa-check-circle"></i> 验证成功！';
-                    statusEl.style.color = '#22c55e';
-
+                    msgEl.innerHTML = '✅ 激活成功！正在解锁...';
+                    msgEl.style.color = 'green';
                     localStorage.setItem('isPaid', 'true');
-
                     setTimeout(() => {
-                        alert('🎉 恭喜！激活码验证成功，课程已解锁！');
+                        alert('🎉 恭喜！课程已全部解锁！');
                         location.reload();
-                    }, 500);
+                    }, 1000);
                 } else {
-                    throw new Error(data.error || '验证失败');
+                    msgEl.textContent = '❌ ' + (data.error || '激活码无效');
+                    msgEl.style.color = 'red';
                 }
             } catch (error) {
-                statusEl.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${error.message}`;
-                statusEl.style.color = '#ef4444';
-                confirmBtn.disabled = false;
-                confirmBtn.textContent = '验证并解锁课程';
+                console.error('Verification error:', error);
+                msgEl.textContent = '❌ 网络错误，请重试';
+                msgEl.style.color = 'red';
             }
         }

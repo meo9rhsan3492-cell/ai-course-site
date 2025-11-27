@@ -41,63 +41,47 @@ app.post('/api/verify-code', (req, res) => {
     // 这里可以决定激活码是否只能使用一次
     // if (codeData.used) {
     //     return res.status(400).json({ success: false, error: '激活码已被使用' });
-    // }
+    orderId,
+        productId,
+        amount,
+        userId,
+        status: 'pending',
+            createdAt: new Date().toISOString(),
+                // 使用 qrserver 生成二维码
+                qrCodeUrl: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PAY_${orderId}`
+};
 
-    // 标记为已使用
-    // codeData.used = true;
-    // activationCodes.set(code, codeData);
+orders.set(orderId, order);
 
-    res.json({ success: true });
+// 模拟支付成功 (3秒后)
+setTimeout(() => {
+    const existingOrder = orders.get(orderId);
+    if (existingOrder && existingOrder.status === 'pending') {
+        existingOrder.status = 'paid';
+        existingOrder.paidAt = new Date().toISOString();
+
+        // 生成 Token
+        const token = jwt.sign(
+            { userId, orderId, productId },
+            JWT_SECRET,
+            { expiresIn: '365d' }
+        );
+        existingOrder.accessToken = token;
+        orders.set(orderId, existingOrder);
+        console.log(`Order ${orderId} marked as paid`);
+    }
+}, 3000);
+
+res.json({
+    success: true,
+    orderId,
+    qrCodeUrl: order.qrCodeUrl
 });
 
-// API: 创建订单 (保留用于兼容)
-app.post('/api/create-order', (req, res) => {
-    try {
-        const { productId, amount, userId } = req.body;
-        const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-
-        const order = {
-            orderId,
-            productId,
-            amount,
-            userId,
-            status: 'pending',
-            createdAt: new Date().toISOString(),
-            // 使用 qrserver 生成二维码
-            qrCodeUrl: `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PAY_${orderId}`
-        };
-
-        orders.set(orderId, order);
-
-        // 模拟支付成功 (3秒后)
-        setTimeout(() => {
-            const existingOrder = orders.get(orderId);
-            if (existingOrder && existingOrder.status === 'pending') {
-                existingOrder.status = 'paid';
-                existingOrder.paidAt = new Date().toISOString();
-
-                // 生成 Token
-                const token = jwt.sign(
-                    { userId, orderId, productId },
-                    JWT_SECRET,
-                    { expiresIn: '365d' }
-                );
-                existingOrder.accessToken = token;
-                orders.set(orderId, existingOrder);
-                console.log(`Order ${orderId} marked as paid`);
-            }
-        }, 3000);
-
-        res.json({
-            success: true,
-            orderId,
-            qrCodeUrl: order.qrCodeUrl
-        });
-
     } catch (error) {
-        console.error('Create order error:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+    console.error('Create order error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+}
 });
 
 // API: 查询订单状态
