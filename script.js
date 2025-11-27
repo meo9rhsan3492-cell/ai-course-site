@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const isPaid = localStorage.getItem('isPaid') === 'true';
     console.log('Is paid:', isPaid);
 
+    // Handle Unlock Bar visibility
+    const unlockBar = document.getElementById('unlock-bar');
+    if (isPaid && unlockBar) {
+        unlockBar.style.display = 'none';
+    }
+
     // Get all lesson links
     const lessonLinks = document.querySelectorAll('.lesson-list a');
     console.log('Found lesson links:', lessonLinks.length);
@@ -83,55 +89,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Back to course view
     if (backToCourseBtn) {
         backToCourseBtn.addEventListener('click', () => {
-            lessonView.style.display = 'none';
-            courseView.style.display = 'block';
         });
-    }
 
-    // Payment modal helper
-    window.openPaymentModal = function () {
-        if (paymentModal) {
-            paymentModal.style.display = 'block';
+        // Close payment modal
+        if (paymentCloseBtn) {
+            paymentCloseBtn.addEventListener('click', () => {
+                paymentModal.style.display = 'none';
+            });
         }
-    }
 
-    // Buy buttons
-    buyBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            openPaymentModal();
-        });
+        // Theme toggle
+        if (themeToggleBtn) {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDark = document.body.classList.contains('dark-mode');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        }
+
+        // Mobile menu
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('show');
+            });
+        }
+
+        console.log('All event listeners attached!');
     });
-
-    // Close payment modal
-    if (paymentCloseBtn) {
-        paymentCloseBtn.addEventListener('click', () => {
-            paymentModal.style.display = 'none';
-        });
-    }
-
-    // Theme toggle
-    if (themeToggleBtn) {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    }
-
-    // Mobile menu
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('show');
-        });
-    }
-
-    console.log('All event listeners attached!');
-});
 
 // Global functions for HTML onclick attributes
 
